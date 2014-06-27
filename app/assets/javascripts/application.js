@@ -13,4 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+// Loads all Boostrap javascritps
+//= require bootstrap-sprockets
 //= require_tree .
