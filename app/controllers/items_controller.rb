@@ -21,6 +21,24 @@ class ItemsController < ApplicationController
   def edit
   end
 
+  # GET /items/export
+  def export
+    @items = Item.all
+    send_data @items.to_csv
+  end
+  # GET /items/import
+  def import
+  end
+  # POST /items/import
+  def import_file
+    begin
+      Item.import(params[:file])
+      redirect_to root_url, notice: "Products imported. Duplicates are Ignored."
+    rescue
+      redirect_to root_url, notice: "Invalid CSV file format."
+    end
+  end
+
   # POST /items
   # POST /items.json
   def create
