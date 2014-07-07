@@ -1,8 +1,8 @@
 <div class="paragraph">
   <div class="row">
-    <div class="col-sm-1 ener-header">Serial</div>
+    <div class="col-sm-2 ener-header">Serial</div>
     <div class="col-sm-1 ener-header">Name</div>
-    <div class="col-sm-2 ener-header">Manufacturer</div>
+    <div class="col-sm-1 ener-header">Manufacturer</div>
     <div class="col-sm-2 ener-header">Ubt serial</div>
     <div class="col-sm-3 ener-header">Description</div>
     <div class="col-sm-1 ener-header">User</div>
@@ -11,9 +11,9 @@
 
   <% @items.each do |item| %>
     <div class="row">
-      <div class="col-sm-1"><%= item.serial %></div>
+      <div class="col-sm-2"><%= item.serial %></div>
       <div class="col-sm-1"><%= item.name %></div>
-      <div class="col-sm-2"><%= item.manufacturer %></div>
+      <div class="col-sm-1"><%= item.manufacturer %></div>
       <div class="col-sm-2"><%= item.ubt_serial %></div>
       <div class="col-sm-3"><%= item.description %></div>
       <div class="col-sm-1"><%= item.user %></div>
