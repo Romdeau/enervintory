@@ -1,5 +1,6 @@
 class Item < ActiveRecord::Base
   belongs_to :user
+  has_many :software
 
   validates :serial, uniqueness: true
 

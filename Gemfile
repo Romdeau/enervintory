@@ -5,6 +5,8 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3',  group: :development
+gem 'annotate', group: :development
+
 gem 'pg', group: :production
 gem 'rb-readline', group: :production
 gem 'unicorn', group: :production
@@ -22,6 +24,7 @@ gem 'autoprefixer-rails'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'jquery-turbolinks'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
