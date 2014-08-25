@@ -1,41 +1,51 @@
-<%= form_for(@item) do |f| %>
-  <% if @item.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
+<div class="row">
+  <div class="col-lg-6">
+    <%= form_for(@item, class: "form-horizontal edit-stock") do |f| %>
+      <% if @item.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
 
-      <ul>
-      <% @item.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+          <ul>
+          <% @item.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :serial %><br>
-    <%= f.text_field :serial %>
+      <div class="form-group">
+        <%= f.label :serial, class: "col-sm-3 control-label" %>
+        <div class="col-sm-9">
+          <%= f.text_field :serial, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :name, class: "col-sm-3 control-label" %>
+        <div class="col-sm-9">
+          <%= f.text_field :name, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :manufacturer, class: "col-sm-3 control-label" %>
+        <div class="col-sm-9">
+          <%= f.text_field :manufacturer, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :ubt_serial, class: "col-sm-3 control-label" %>
+        <div class="col-sm-9">
+          <%= f.text_field :ubt_serial, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :description, class: "col-sm-3 control-label" %>
+        <div class="col-sm-9">
+          <%= f.text_field :description, class: "form-control" %>
+        </div>
+      </div>
+      <div class="actions col-sm-offset-3 col-sm-9">
+        <%= f.submit class: "btn btn-sm btn-success" %>
+      </div>
+    <% end %>
   </div>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :manufacturer %><br>
-    <%= f.text_field :manufacturer %>
-  </div>
-  <div class="field">
-    <%= f.label :ubt_serial %><br>
-    <%= f.text_field :ubt_serial %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

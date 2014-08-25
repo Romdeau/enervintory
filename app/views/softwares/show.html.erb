@@ -1,24 +1,23 @@
-<p id="notice"><%= notice %></p>
+<div class="page-header">
+  <h1>Showing Detail for <%= @software.name %>
+</div>
+<div class="content">
+  <p>
+    <strong>Serial:</strong>
+    <%= @software.serial %>
+  </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @software.name %>
-</p>
+  <p>
+    <strong>Notes:</strong>
+    <%= @software.notes %>
+  </p>
 
-<p>
-  <strong>Serial:</strong>
-  <%= @software.serial %>
-</p>
-
-<p>
-  <strong>Notes:</strong>
-  <%= @software.notes %>
-</p>
-
-<p>
-  <strong>Item:</strong>
-  <%= @software.item %>
-</p>
-
-<%= link_to 'Edit', edit_software_path(@software) %> |
-<%= link_to 'Back', softwares_path %>
+  <p>
+    <strong>Item:</strong>
+    <%= @software.item %>
+  </p>
+  <div class="btn-group">
+    <%= link_to 'Edit', edit_software_path(@software), class: "btn btn-sm btn-info" %>
+    <%= link_to 'Back', softwares_path, class: "btn btn-sm btn-info" %>
+  </div>
+</div>

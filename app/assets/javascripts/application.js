@@ -11,8 +11,30 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require turbolinks
 // Loads all Boostrap javascritps
-//= require bootstrap-sprockets
-//= require_tree .
+//= require bootstrap
+//= require jquery.tablesorter.min.js
+// require moment.min.js
+// require fullcalendar.min.js
+// require_tree .
+
+$(document).ready(function () {
+
+    (function ($) {
+
+        $('#filter').keyup(function () {
+
+            var rex = new RegExp($(this).val(), 'i');
+            $('.searchable tr').hide();
+            $('.searchable tr').filter(function () {
+                return rex.test($(this).text());
+            }).show();
+
+        })
+
+    }(jQuery));
+    $("#sorttable").tablesorter();
+});
