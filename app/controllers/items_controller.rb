@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_item, only: [:show, :edit, :update, :destroy, :assign_user]
 
   # GET /items
   # GET /items.json
@@ -10,6 +10,7 @@ class ItemsController < ApplicationController
   # GET /items/1
   # GET /items/1.json
   def show
+    @softwares = @item.software
   end
 
   # GET /items/new
@@ -76,6 +77,18 @@ class ItemsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to items_url, notice: 'Item was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def assign_user
+    @users = User.all
+  end
+
+  def process_user
+    @item = Item.find(params[:id])
+    @user = User.find(params[:id])
+    if @item.save
+      redirect_to item_path(@item)
     end
   end
 

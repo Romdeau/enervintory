@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get '/items/import' => 'items#import', :as => :import_items
 
   post '/items/:id/softwares' => 'softwares#create'
+  get 'items/:id/assign_user' => 'items#assign_user', as: :assign_user
+  post 'items/:id/assign_user' => 'items#process_user', as: :process_user
 
   resources :items do
     resources :softwares, only: [:new, :create]
