@@ -25,7 +25,11 @@
             <td><%= item.manufacturer %></td>
             <td><%= item.ubt_serial %></td>
             <td><%= item.description %></td>
-            <td><%= item.user %></td>
+            <td>
+              <% if item.user != nil %>
+                <%= item.user.email %>
+              <% end %>
+            </td>
             <td>
               <div class="btn-group">
                 <%= link_to 'Show', item, class: "btn btn-xs btn-info" %>

@@ -86,7 +86,8 @@ class ItemsController < ApplicationController
 
   def process_user
     @item = Item.find(params[:id])
-    @user = User.find(params[:id])
+    @user = User.find(params[:user_id])
+    @item.user_id = @user.id
     if @item.save
       redirect_to item_path(@item)
     end
