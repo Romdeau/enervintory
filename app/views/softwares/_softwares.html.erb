@@ -22,10 +22,18 @@
             <td><%= software.name %></td>
             <td><%= software.serial %></td>
             <td><%= software.notes %></td>
-            <td><%= software.item %></td>
-            <td><%= link_to 'Show', software %></td>
-            <td><%= link_to 'Edit', edit_software_path(software) %></td>
-            <td><%= link_to 'Destroy', software, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td>
+              <% if software.item != nil %>
+                <%= link_to software.item.name, software.item %>
+              <% end %>
+            </td>
+            <td>
+              <div class="btn-group">
+                <%= link_to 'Show', software, class: "btn btn-xs btn-info" %>
+                <%= link_to 'Edit', edit_software_path(software), class: "btn btn-xs btn-info" %>
+                <%= link_to 'Destroy', software, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-danger" %>
+              </div>
+            </td>
           </tr>
         <% end %>
       </tbody>
