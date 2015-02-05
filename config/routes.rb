@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   get '/items/export' => 'items#export', :as => :export_items
   get '/items/import' => 'items#import', :as => :import_items
+  post '/items/import' => 'items#import_file', :as => :import_file_items
 
   post '/items/:id/softwares' => 'softwares#create'
   get 'items/:id/assign_user' => 'items#assign_user', as: :assign_user

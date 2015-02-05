@@ -17,7 +17,16 @@ class Item < ActiveRecord::Base
   belongs_to :user
   has_many :software
 
-  validates :serial, uniqueness: true
+  validates :serial, uniqueness: true,
+    unless: :blank_serial?
+
+  def blank_serial?
+    if serial == nil or serial == ''
+      true
+    else
+      false
+    end
+  end
 
   def self.to_csv
     CSV.generate do |csv|
